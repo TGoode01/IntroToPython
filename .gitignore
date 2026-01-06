@@ -8,7 +8,8 @@
 # CUSTOM: Logs may be temporarily committed for verification; keep ignored for production and security.
 
 # === DEITEL BOOK: Do NOT redistribute example files ===
-
+# Copy the book's `examples/` folder locally for personal use.
+# This repository intentionally ignores that directory.
 examples/
 
 # === Universal (all projects, all languages) ===
