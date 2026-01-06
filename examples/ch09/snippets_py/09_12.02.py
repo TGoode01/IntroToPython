@@ -2,10 +2,10 @@
 
 # Datasets
 
-# Working with Locally Stored CSV Files 
+# Working with Locally Stored CSV Files
 import pandas as pd
 
-df = pd.read_csv('accounts.csv', 
+df = pd.read_csv('accounts.csv',
                  names=['account', 'name', 'balance'])
 
 df

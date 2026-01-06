@@ -9,7 +9,7 @@ def try_it(value):
     else:
         print(f'int({value}) is {x}')
     finally:
-        print('finally executed')   
+        print('finally executed')
 
 try_it(10.7)
 

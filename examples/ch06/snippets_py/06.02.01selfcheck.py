@@ -1,7 +1,7 @@
 # Section 6.2.1 Self Check snippets
 
 # Exercise 3
-states = {'VT': 'Vermont', 'NH': 'New Hampshire', 
+states = {'VT': 'Vermont', 'NH': 'New Hampshire',
           'MA': 'Massachusetts'}
 
 states

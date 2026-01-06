@@ -13,7 +13,7 @@ with accounts, temp_file:
         else:
             new_record = ' '.join([account, 'Smith', balance])
             temp_file.write(new_record + '\n')
-                    
+
 import os
 
 os.remove('accounts.txt')

@@ -13,7 +13,7 @@ for axes in axes_list.ravel():
      axes.imshow(img)
 
 figure.tight_layout()
-        
+
 
 
 ##########################################################################

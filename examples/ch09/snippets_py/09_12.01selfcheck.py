@@ -12,10 +12,10 @@ with open('grades.csv', mode='w', newline='') as grades:
 with open('grades.csv', 'r', newline='') as grades:
     print(f'{"ID":<4}{"Name":<7}{"Grade"}')
     reader = csv.reader(grades)
-    for record in reader:  
+    for record in reader:
         student_id, name, grade = record
         print(f'{student_id:<4}{name:<7}{grade}')
-        
+
 
 
 ##########################################################################

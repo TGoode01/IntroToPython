@@ -20,17 +20,17 @@ CREATE TABLE author_ISBN (
     id INTEGER NOT NULL,
     isbn TEXT NOT NULL,
     PRIMARY KEY (id, isbn),
-    FOREIGN KEY (id) REFERENCES authors(id) ON DELETE CASCADE, 
+    FOREIGN KEY (id) REFERENCES authors(id) ON DELETE CASCADE,
     FOREIGN KEY (isbn) REFERENCES titles (isbn) ON DELETE CASCADE
 );
 
 PRAGMA foreign_keys = ON;
 
 INSERT INTO authors (first, last)
-VALUES 
-    ('Paul','Deitel'), 
+VALUES
+    ('Paul','Deitel'),
     ('Harvey','Deitel'),
-    ('Abbey','Deitel'), 
+    ('Abbey','Deitel'),
     ('Dan','Quirk'),
     ('Alexander', 'Wald');
 
@@ -39,7 +39,7 @@ VALUES
     ('0135404673','Intro to Python for CS and DS',1,'2020'),
     ('0132151006','Internet & WWW How to Program',5,'2012'),
     ('0134743350','Java How to Program',11,'2018'),
-    ('0133976890','C How to Program',8,'2016'), 
+    ('0133976890','C How to Program',8,'2016'),
     ('0133406954','Visual Basic 2012 How to Program',6,'2014'),
     ('0134601548','Visual C# How to Program',6,'2017'),
     ('0136151574','Visual C++ How to Program',2,'2008'),

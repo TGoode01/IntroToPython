@@ -37,7 +37,7 @@ tuple(enumerate(colors))
 
 for index, value in enumerate(colors):
     print(f'{index}: {value}')
-    
+
 
 
 

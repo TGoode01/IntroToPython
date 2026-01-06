@@ -25,14 +25,14 @@ sorted_items = sorted(items, key=itemgetter(1), reverse=True)
 # Getting the Top 20 Words
 top20 = sorted_items[1:21]
 
-# Convert top20 to a DataFrame 
+# Convert top20 to a DataFrame
 import pandas as pd
 
-df = pd.DataFrame(top20, columns=['word', 'count'])  
+df = pd.DataFrame(top20, columns=['word', 'count'])
 
 df
 
-# Visualizing the DataFrame 
+# Visualizing the DataFrame
 axes = df.plot.bar(x='word', y='count', legend=False)
 
 import matplotlib.pyplot as plt

@@ -36,7 +36,7 @@ import matplotlib.pyplot as plt
 
 figure, axes = plt.subplots(nrows=4, ncols=6, figsize=(6, 4))
 
-# Displaying Each Image and Removing the Axes Labels 
+# Displaying Each Image and Removing the Axes Labels
 
 for item in zip(axes.ravel(), digits.images, digits.target):
     axes, image, target = item
@@ -44,7 +44,7 @@ for item in zip(axes.ravel(), digits.images, digits.target):
     axes.set_xticks([])  # remove x-axis tick marks
     axes.set_yticks([])  # remove y-axis tick marks
     axes.set_title(target)
-plt.tight_layout()     
+plt.tight_layout()
 
 # 15.2.3 Self Check
 # Exercise 2
@@ -120,7 +120,7 @@ from sklearn.metrics import classification_report
 
 names = [str(digit) for digit in digits.target_names]
 
-print(classification_report(expected, predicted, 
+print(classification_report(expected, predicted,
        target_names=names))
 
 # Visualizing the Confusion Matrix
@@ -131,7 +131,7 @@ confusion_df = pd.DataFrame(confusion, index=range(10),
 
 import seaborn as sns
 
-axes = sns.heatmap(confusion_df, annot=True, 
+axes = sns.heatmap(confusion_df, annot=True,
                     cmap='nipy_spectral_r')
 
 # 15.3.2 K-Fold Cross-Validation
@@ -144,7 +144,7 @@ kfold = KFold(n_splits=10, random_state=11, shuffle=True)
 # Using the KFold Object with Function cross_val_score
 from sklearn.model_selection import cross_val_score
 
-scores = cross_val_score(estimator=knn, X=digits.data, 
+scores = cross_val_score(estimator=knn, X=digits.data,
      y=digits.target, cv=kfold)
 
 scores
@@ -159,15 +159,15 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 
 estimators = {
-     'KNeighborsClassifier': knn, 
+     'KNeighborsClassifier': knn,
      'SVC': SVC(gamma='scale'),
      'GaussianNB': GaussianNB()}
 
 for estimator_name, estimator_object in estimators.items():
      kfold = KFold(n_splits=10, random_state=11, shuffle=True)
-     scores = cross_val_score(estimator=estimator_object, 
+     scores = cross_val_score(estimator=estimator_object,
          X=digits.data, y=digits.target, cv=kfold)
-     print(f'{estimator_name:>20}: ' + 
+     print(f'{estimator_name:>20}: ' +
            f'mean accuracy={scores.mean():.2%}; ' +
            f'standard deviation={scores.std():.2%}')
 
@@ -175,7 +175,7 @@ for estimator_name, estimator_object in estimators.items():
 for k in range(1, 20, 2):
      kfold = KFold(n_splits=10, random_state=11, shuffle=True)
      knn = KNeighborsClassifier(n_neighbors=k)
-     scores = cross_val_score(estimator=knn, 
+     scores = cross_val_score(estimator=knn,
          X=digits.data, y=digits.target, cv=kfold)
      print(f'k={k:<2}; mean accuracy={scores.mean():.2%}; ' +
            f'standard deviation={scores.std():.2%}')

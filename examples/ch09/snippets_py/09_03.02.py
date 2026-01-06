@@ -5,7 +5,7 @@ with open('accounts.txt', mode='r') as accounts:
     for record in accounts:
         account, name, balance = record.split()
         print(f'{account:<10}{name:<10}{balance:>10}')
-        
+
 
 
 

@@ -14,7 +14,7 @@ letters_list = ['A', 'B', 'C', 'D']
 
 ','.join([str(i) for i in range(10)])
 
-# String Methods partition and rpartition 
+# String Methods partition and rpartition
 'Amanda: 89, 97, 92'.partition(': ')
 
 url = 'http://www.deitel.com/books/PyCDS/table_of_contents.html'
@@ -25,7 +25,7 @@ document
 
 rest_of_url
 
-# String Method splitlines 
+# String Method splitlines
 lines = """This is line 1
 This is line2
 This is line3"""
@@ -37,7 +37,7 @@ lines.splitlines()
 lines.splitlines(True)
 
 
-    
+
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #

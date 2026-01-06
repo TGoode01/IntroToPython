@@ -1,4 +1,4 @@
-# Section 18.3 snippets 
+# Section 18.3 snippets
 
 # Tables, Rows and Columns
 
@@ -41,37 +41,37 @@ df.head()
 pd.read_sql('SELECT first, last FROM authors', connection)
 
 # 18.3.3 WHERE Clause
-pd.read_sql("""SELECT title, edition, copyright 
-                FROM titles 
+pd.read_sql("""SELECT title, edition, copyright
+                FROM titles
                 WHERE copyright > '2016'""", connection)
 
-# Pattern Matching: Zero or More Characters 
-pd.read_sql("""SELECT id, first, last 
-                FROM authors 
-                WHERE last LIKE 'D%'""", 
+# Pattern Matching: Zero or More Characters
+pd.read_sql("""SELECT id, first, last
+                FROM authors
+                WHERE last LIKE 'D%'""",
              connection, index_col=['id'])
-              
+
 # Pattern Matching: Any Character
-pd.read_sql("""SELECT id, first, last 
-                FROM authors 
-                WHERE first LIKE '_b%'""", 
+pd.read_sql("""SELECT id, first, last
+                FROM authors
+                WHERE first LIKE '_b%'""",
              connection, index_col=['id'])
-              
+
 # 18.3.4 ORDER BY Clause
 pd.read_sql('SELECT title FROM titles ORDER BY title ASC',
              connection)
 
 # Sorting By Multiple Columns
-pd.read_sql("""SELECT id, first, last 
-                FROM authors 
-                ORDER BY last, first""", 
+pd.read_sql("""SELECT id, first, last
+                FROM authors
+                ORDER BY last, first""",
              connection, index_col=['id'])
 
-pd.read_sql("""SELECT id, first, last 
-                FROM authors 
-                ORDER BY last DESC, first ASC""", 
+pd.read_sql("""SELECT id, first, last
+                FROM authors
+                ORDER BY last DESC, first ASC""",
              connection, index_col=['id'])
-              
+
 # Combining the WHERE and ORDER BY Clauses
 pd.read_sql("""SELECT isbn, title, edition, copyright
                 FROM titles
@@ -91,26 +91,26 @@ cursor = connection.cursor()
 cursor = cursor.execute("""INSERT INTO authors (first, last)
                             VALUES ('Sue', 'Red')""")
 
-pd.read_sql('SELECT id, first, last FROM authors', 
+pd.read_sql('SELECT id, first, last FROM authors',
              connection, index_col=['id'])
-             
+
 # Note Regarding Strings That Contain Single Quotes
 
 # 18.3.7 UPDATE Statement
 cursor = cursor.execute("""UPDATE authors SET last='Black'
-                            WHERE last='Red' AND first='Sue'""") 
+                            WHERE last='Red' AND first='Sue'""")
 
 cursor.rowcount
 
-pd.read_sql('SELECT id, first, last FROM authors', 
+pd.read_sql('SELECT id, first, last FROM authors',
              connection, index_col=['id'])
-             
+
 # 18.3.8 DELETE FROM Statement
-cursor = cursor.execute('DELETE FROM authors where id=6') 
+cursor = cursor.execute('DELETE FROM authors where id=6')
 
 cursor.rowcount
 
-pd.read_sql('SELECT id, first, last FROM authors', 
+pd.read_sql('SELECT id, first, last FROM authors',
              connection, index_col=['id'])
 
 # Closing the Database

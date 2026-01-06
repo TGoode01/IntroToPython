@@ -14,7 +14,7 @@ list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, numbers)))
 # Exercise 4
 fahrenheit = [41, 32, 212]
 
-list(map(lambda x: (x, (x - 32) * 5 / 9), fahrenheit)) 
+list(map(lambda x: (x, (x - 32) * 5 / 9), fahrenheit))
 
 
 

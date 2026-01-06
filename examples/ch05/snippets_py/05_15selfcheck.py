@@ -1,7 +1,7 @@
 # Section 5.15 Self Check snippets
 
 # Exercise 3
-foods = ['Cookies', 'pizza', 'Grapes', 
+foods = ['Cookies', 'pizza', 'Grapes',
          'apples', 'steak', 'Bacon']
 
 min(foods)

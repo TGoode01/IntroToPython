@@ -10,7 +10,7 @@ items = 0
 for row in t:
     for item in row:
         total += item
-        items += 1     
+        items += 1
 
 total / items
 

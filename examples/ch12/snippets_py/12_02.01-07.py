@@ -72,7 +72,7 @@ blob.sentiment.polarity
 
 blob.sentiment.subjectivity
 
-# Getting the Sentiment of a Sentence 
+# Getting the Sentiment of a Sentence
 for sentence in blob.sentences:
     print(sentence.sentiment)
 
@@ -100,13 +100,13 @@ blob.sentiment
 
 for sentence in blob.sentences:
     print(sentence.sentiment)
-    
+
 
 # Section 12.2.6 Self Check snippets
 
 # Exercise 1
 text = ('The food is not good. The movie was not bad. ' +
-        'The movie was excellent!')  
+        'The movie was excellent!')
 
 exblob = TextBlob(text, analyzer=NaiveBayesAnalyzer())
 
@@ -133,7 +133,7 @@ chinese.detect_language()
 
 spanish.translate()
 
-chinese.translate() 
+chinese.translate()
 
 
 # Section 12.2.7 Self Check snippets

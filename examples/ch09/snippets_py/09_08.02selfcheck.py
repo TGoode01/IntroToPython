@@ -8,7 +8,7 @@ def try_it(value):
         print(f'{value} could not be converted to an integer')
     else:
         print(f'int({value}) is {X}')
-        
+
 
 try_it(10.7)
 

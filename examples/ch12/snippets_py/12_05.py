@@ -3,17 +3,17 @@
 
 import spacy
 
-nlp = spacy.load('en') 
+nlp = spacy.load('en')
 
 # Creating a spaCy Doc
-document = nlp('In 1994, Tim Berners-Lee founded the ' + 
+document = nlp('In 1994, Tim Berners-Lee founded the ' +
     'World Wide Web Consortium (W3C), devoted to ' +
     'developing web technologies')
-    
+
 # Getting the Named Entities
 for entity in document.ents:
     print(f'{entity.text}: {entity.label_}')
-    
+
 
 
 

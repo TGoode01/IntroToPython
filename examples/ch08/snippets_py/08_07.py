@@ -14,7 +14,7 @@ sentence.index('be')
 
 sentence.rindex('be')
 
-# Determining Whether a String Contains a Substring 
+# Determining Whether a String Contains a Substring
 'that' in sentence
 
 'THAT' in sentence

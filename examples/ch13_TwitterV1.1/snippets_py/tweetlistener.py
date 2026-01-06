@@ -13,16 +13,16 @@ class TweetListener(tweepy.StreamListener):
         super().__init__(api)  # call superclass's init
 
     def on_connect(self):
-        """Called when your connection attempt is successful, enabling 
+        """Called when your connection attempt is successful, enabling
         you to perform appropriate application tasks at that point."""
         print('Connection successful\n')
 
     def on_status(self, status):
         """Called when Twitter pushes a new tweet to you."""
         # get the tweet text
-        try:  
+        try:
             tweet_text = status.extended_tweet.full_text
-        except: 
+        except:
             tweet_text = status.text
 
         print(f'Screen name: {status.user.screen_name}:')

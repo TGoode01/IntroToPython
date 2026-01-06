@@ -8,7 +8,7 @@ import pandas as pd
 
 titanic = pd.read_csv('https://vincentarelbundock.github.io/' +
     'Rdatasets/csv/carData/TitanicSurvival.csv')
-                      
+
 # Viewing Some of the Rows in the Titanic Dataset
 pd.set_option('precision', 2)  # format for floating-point values
 

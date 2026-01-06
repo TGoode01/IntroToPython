@@ -3,7 +3,7 @@
 
 def main():
     result = square(7)  # square's stack frame pushed onto stack here
-    print('square(7):', result)  
+    print('square(7):', result)
     # main's stack frame is popped here
 
 def square(number):

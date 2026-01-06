@@ -8,7 +8,7 @@ def binary_search(data, key):
     high = len(data) - 1  # high end of search area
     middle = (low + high + 1) // 2  # middle element index
     location = -1  # return value -1 if not found
-    
+
     # loop to search for element
     while low <= high and location == -1:
         # print remaining elements of array
@@ -17,18 +17,18 @@ def binary_search(data, key):
         print('   ' * middle, end='')  # output spaces for alignment
         print(' * ')  # indicate current middle
 
-        # if the element is found at the middle                    
-        if key == data[middle]:                                   
-            location = middle  # location is the current middle     
+        # if the element is found at the middle
+        if key == data[middle]:
+            location = middle  # location is the current middle
         elif key < data[middle]:  # middle element is too high
-            high = middle - 1  # eliminate the higher half          
-        else:  # middle element is too low                         
-            low = middle + 1  # eliminate the lower half            
-                                                                        
+            high = middle - 1  # eliminate the higher half
+        else:  # middle element is too low
+            low = middle + 1  # eliminate the lower half
+
         middle = (low + high + 1) // 2  # recalculate the middle
 
     return location  # return location of search key
-                            
+
 def remaining_elements(data, low, high):
     """Display remaining elements of the binary search."""
     return '   ' * low + ' '.join(str(s) for s in data[low:high + 1])
@@ -39,14 +39,14 @@ def main():
     data.sort()
     print(data, '\n')
 
-    search_key = int(input('Enter an integer value (-1 to quit): ')) 
+    search_key = int(input('Enter an integer value (-1 to quit): '))
 
     # repeatedly input an integer; -1 terminates the program
     while search_key != -1:
         location = binary_search(data, search_key)  # perform search
 
         if location == -1:  # not found
-            print(f'{search_key} was not found\n') 
+            print(f'{search_key} was not found\n')
         else:
             print(f'{search_key} found in position {location}\n')
 

@@ -1,8 +1,8 @@
-# Section 18.5 snippets 
+# Section 18.5 snippets
 
 # Installing the Python Libraries Required for Interacting with MongoDB
 
-# keys.py 
+# keys.py
 
 # 18.5.1 Creating the MongoDB Atlas Cluster
 
@@ -19,11 +19,11 @@ import tweepy, keys
 
 auth = tweepy.OAuthHandler(
     keys.consumer_key, keys.consumer_secret)
-auth.set_access_token(keys.access_token, 
+auth.set_access_token(keys.access_token,
     keys.access_token_secret)
-    
-api = tweepy.API(auth, wait_on_rate_limit=True, 
-                 wait_on_rate_limit_notify=True)               
+
+api = tweepy.API(auth, wait_on_rate_limit=True,
+                 wait_on_rate_limit_notify=True)
 
 # Loading the Senators’ Data
 import pandas as pd
@@ -36,19 +36,19 @@ pd.options.display.max_columns = 6
 
 senators_df.head()
 
-# Configuring the MongoClient 
+# Configuring the MongoClient
 from pymongo import MongoClient
 
 atlas_client = MongoClient(keys.mongo_connection_string)
 
-db = atlas_client.senators 
+db = atlas_client.senators
 
 # Setting up Tweet Stream
 from tweetlistener import TweetListener
 
 tweet_limit = 10000
 
-twitter_stream = tweepy.Stream(api.auth, 
+twitter_stream = tweepy.Stream(api.auth,
     TweetListener(api, db, tweet_limit))
 
 # Starting the Tweet Stream
@@ -65,21 +65,21 @@ tweet_counts = []
 for senator in senators_df.TwitterHandle:
     tweet_counts.append(db.tweets.count_documents(
         {"$text": {"$search": senator}}))
-        
-# Show Tweet Counts for Each Senator 
+
+# Show Tweet Counts for Each Senator
 tweet_counts_df = senators_df.assign(Tweets=tweet_counts)
 
-tweet_counts_df.sort_values(by='Tweets', 
+tweet_counts_df.sort_values(by='Tweets',
     ascending=False).head(10)
 
-# Get the State Locations for Plotting Markers 
+# Get the State Locations for Plotting Markers
 from geopy import OpenMapQuest
 
 import time
 
 from state_codes import state_codes
 
-geo = OpenMapQuest(api_key=keys.mapquest_key) 
+geo = OpenMapQuest(api_key=keys.mapquest_key)
 
 states = tweet_counts_df.State.unique()
 
@@ -89,32 +89,32 @@ locations = []
 
 for state in states:
     processed = False
-    delay = .1 
+    delay = .1
     while not processed:
         try:
             locations.append(
                 geo.geocode(state_codes[state] + ', USA'))
-            print(locations[-1])  
+            print(locations[-1])
             processed = True
         except:  # timed out, so wait before trying again
             print('OpenMapQuest service timed out. Waiting.')
             time.sleep(delay)
             delay += .1
 
-# Grouping the Tweet Counts by State 
+# Grouping the Tweet Counts by State
 tweets_counts_by_state = tweet_counts_df.groupby(
     'State', as_index=False).sum()
 
 tweets_counts_by_state.head()
 
-# Creating the Map 
+# Creating the Map
 import folium
 
-usmap = folium.Map(location=[39.8283, -98.5795], 
+usmap = folium.Map(location=[39.8283, -98.5795],
                    zoom_start=4, detect_retina=True,
                    tiles='Stamen Toner')
 
-# Creating a Choropleth to Color the Map 
+# Creating a Choropleth to Color the Map
 choropleth = folium.Choropleth(
     geo_data='us-states.json',
     name='choropleth',
@@ -129,7 +129,7 @@ choropleth = folium.Choropleth(
 
 layer = folium.LayerControl().add_to(usmap)
 
-# Creating the Map Markers for Each State 
+# Creating the Map Markers for Each State
 sorted_df = tweet_counts_df.sort_values(
     by='Tweets', ascending=False)
 
@@ -139,14 +139,14 @@ for index, (name, group) in enumerate(sorted_df.groupby('State')):
     for s in group.itertuples():
         strings.append(
             f'{s.Name} ({s.Party}); Tweets: {s.Tweets}')
-        
-    text = '<br>'.join(strings)  
-    marker = folium.Marker(
-        (locations[index].latitude, locations[index].longitude), 
-        popup=text)
-    marker.add_to(usmap) 
 
-# Displaying the Map 
+    text = '<br>'.join(strings)
+    marker = folium.Marker(
+        (locations[index].latitude, locations[index].longitude),
+        popup=text)
+    marker.add_to(usmap)
+
+# Displaying the Map
 usmap.save('SenatorsTweets.html')
 
 

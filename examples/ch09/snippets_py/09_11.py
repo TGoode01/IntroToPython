@@ -1,7 +1,7 @@
 # Section 9.11 snippets
 def function1():
     function2()
-    
+
 def function2():
     raise Exception('An exception occurred')
 

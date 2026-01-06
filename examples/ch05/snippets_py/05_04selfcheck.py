@@ -3,9 +3,9 @@
 # Exercise 3
 high_low = ('Monday', 87, 65)
 
-high_low 
+high_low
 
-print(f'{high_low[0]}: High={high_low[1]}, Low={high_low[2]}') 
+print(f'{high_low[0]}: High={high_low[1]}, Low={high_low[2]}')
 
 day, high = high_low
 
@@ -14,7 +14,7 @@ names = ['Amanda', 'Sam', 'David']
 
 for i, name in enumerate(names):
     print(f'{i}: {name}')
-    
+
 
 
 ##########################################################################

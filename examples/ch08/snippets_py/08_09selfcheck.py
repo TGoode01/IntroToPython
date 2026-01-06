@@ -17,7 +17,7 @@ path, separator, document = document_with_path.rpartition('/')
 path
 
 
-    
+
 
 
 ##########################################################################

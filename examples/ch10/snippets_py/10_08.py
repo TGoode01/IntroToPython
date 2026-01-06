@@ -7,7 +7,7 @@ from commissionemployee import CommissionEmployee
 
 from decimal import Decimal
 
-c = CommissionEmployee('Sue', 'Jones', '333-33-3333', 
+c = CommissionEmployee('Sue', 'Jones', '333-33-3333',
     Decimal('10000.00'), Decimal('0.06'))
 
 c
@@ -20,7 +20,7 @@ c.commission_rate = Decimal('0.1')
 
 print(f'{c.earnings():,.2f}')
 
-# 10.8.2 Subclass SalariedCommissionEmployee 
+# 10.8.2 Subclass SalariedCommissionEmployee
 
 # Testing Class SalariedCommissionEmployee
 
@@ -28,8 +28,8 @@ from salariedcommissionemployee import SalariedCommissionEmployee
 
 s = SalariedCommissionEmployee('Bob', 'Lewis', '444-44-4444',
          Decimal('5000.00'), Decimal('0.04'), Decimal('300.00'))
-         
-print(s.first_name, s.last_name, s.ssn, s.gross_sales, 
+
+print(s.first_name, s.last_name, s.ssn, s.gross_sales,
        s.commission_rate, s.base_salary)
 
 print(f'{s.earnings():,.2f}')
@@ -44,7 +44,7 @@ print(s)
 
 print(f'{s.earnings():,.2f}')
 
-# Testing the "is a" Relationship 
+# Testing the "is a" Relationship
 issubclass(SalariedCommissionEmployee, CommissionEmployee)
 
 isinstance(s, CommissionEmployee)
@@ -57,7 +57,7 @@ employees = [c, s]
 for employee in employees:
      print(employee)
      print(f'{employee.earnings():,.2f}\n')
-     
+
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #

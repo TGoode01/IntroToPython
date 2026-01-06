@@ -10,20 +10,20 @@ class TweetListener(tweepy.StreamingClient):
         """Create instance variables for tracking number of tweets."""
         self.tweet_count = 0
         self.TWEET_LIMIT = limit
-        
-        # GoogleTranslator object for translating tweets to English 
+
+        # GoogleTranslator object for translating tweets to English
         self.translator = GoogleTranslator(source='auto', target='en')
 
-        super().__init__(bearer_token, wait_on_rate_limit=True)  
+        super().__init__(bearer_token, wait_on_rate_limit=True)
 
     def on_connect(self):
-        """Called when your connection attempt is successful, enabling 
+        """Called when your connection attempt is successful, enabling
         you to perform appropriate application tasks at that point."""
         print('Connection successful\n')
 
     def on_response(self, response):
         """Called when Twitter pushes a new tweet to you."""
-        
+
         try:
             # get username of user who sent the tweet
             username = response.includes['users'][0].username
@@ -36,11 +36,11 @@ class TweetListener(tweepy.StreamingClient):
                 print(f' Translated: {english}')
 
             print()
-            self.tweet_count += 1 
+            self.tweet_count += 1
         except Exception as e:
             print(f'Exception occured: {e}')
             self.disconnect()
-            
+
         # if TWEET_LIMIT is reached, terminate streaming
         if self.tweet_count == self.TWEET_LIMIT:
             self.disconnect()

@@ -20,9 +20,9 @@ account1.balance
 
 # Account Methods Perform Validation
 account1.deposit(Decimal('-123.45'))
-    
+
 # Section 10.2.2
-# Defining a Class 
+# Defining a Class
 Account?
 
 

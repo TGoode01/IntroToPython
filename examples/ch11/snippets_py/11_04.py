@@ -2,13 +2,13 @@
 # Note that the self check #3 is included here as it
 # continues the section's IPython session.
 
-# Function fibonacci 
+# Function fibonacci
 def fibonacci(n):
     if n in (0, 1):  # base cases
         return n
     else:
         return fibonacci(n - 1) + fibonacci(n - 2)
-    
+
 # Testing Function fibonacci
 for n in range(41):
     print(f'Fibonacci({n}) = {fibonacci(n)}')

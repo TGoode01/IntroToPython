@@ -1,6 +1,6 @@
 # Section 9.4 snippets
 
-# Updating accounts.txt 
+# Updating accounts.txt
 accounts = open('accounts.txt', 'r')
 
 temp_file = open('temp_file.txt', 'w')
@@ -13,7 +13,7 @@ with accounts, temp_file:
         else:
             new_record = ' '.join([account, 'Williams', balance])
             temp_file.write(new_record + '\n')
-                    
+
 
 # os Module File Processing Functions
 import os

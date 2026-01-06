@@ -55,7 +55,7 @@ class Time:
         self.minute = minute
         self.second = second
 
-    @property 
+    @property
     def time(self):
         """Return hour, minute and second as a tuple."""
         return (self.hour, self.minute, self.second)
@@ -67,13 +67,13 @@ class Time:
 
     def __repr__(self):
         """Return Time string for repr()."""
-        return (f'Time(hour={self.hour}, minute={self.minute}, ' + 
+        return (f'Time(hour={self.hour}, minute={self.minute}, ' +
                 f'second={self.second})')
 
     def __str__(self):
         """Return Time string in 12-hour clock format."""
-        return (('12' if self.hour in (0, 12) else str(self.hour % 12)) + 
-                f':{self.minute:0>2}:{self.second:0>2}' + 
+        return (('12' if self.hour in (0, 12) else str(self.hour % 12)) +
+                f':{self.minute:0>2}:{self.second:0>2}' +
                 (' AM' if self.hour < 12 else ' PM'))
 
 

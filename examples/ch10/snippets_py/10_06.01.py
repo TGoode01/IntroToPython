@@ -1,6 +1,6 @@
 # Section 10.6.1 snippets
 
-# Creating, Shuffling and Dealing the Cards 
+# Creating, Shuffling and Dealing the Cards
 from deck import DeckOfCards
 
 deck_of_cards = DeckOfCards()

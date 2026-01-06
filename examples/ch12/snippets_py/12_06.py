@@ -3,7 +3,7 @@
 # Loading the Language Model and Creating a spaCy Doc
 import spacy
 
-nlp = spacy.load('en')  
+nlp = spacy.load('en')
 
 # Creating the spaCy Docs
 from pathlib import Path
@@ -12,7 +12,7 @@ document1 = nlp(Path('RomeoAndJuliet.txt').read_text())
 
 document2 = nlp(Path('EdwardTheSecond.txt').read_text())
 
-# Comparing the Books’ Similarity 
+# Comparing the Books’ Similarity
 document1.similarity(document2)
 
 

@@ -1,6 +1,6 @@
 # Section 5.11 snippets
 
-# 5.11 Simulating Stacks with Lists 
+# 5.11 Simulating Stacks with Lists
 stack = []
 
 stack.append('red')

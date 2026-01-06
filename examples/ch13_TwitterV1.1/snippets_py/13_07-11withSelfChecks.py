@@ -1,7 +1,7 @@
 # Section 13.7-13.11 snippets with Self Checks
 # because those sections are one running IPython session
 
-# 13.7 Authenticating with Twitter Via Tweepy 
+# 13.7 Authenticating with Twitter Via Tweepy
 import tweepy
 
 import keys
@@ -14,9 +14,9 @@ auth.set_access_token(keys.access_token,
                       keys.access_token_secret)
 
 # Creating an API Object
-api = tweepy.API(auth, wait_on_rate_limit=True, 
+api = tweepy.API(auth, wait_on_rate_limit=True,
                  wait_on_rate_limit_notify=True)
-                 
+
 # 13.8 Getting Information About a Twitter Account
 nasa = api.get_user('nasa')
 
@@ -35,7 +35,7 @@ nasa.status.text
 # Getting the Number of Followers
 nasa.followers_count
 
-# Getting the Number of Friends 
+# Getting the Number of Friends
 nasa.friends_count
 
 # Getting Your Own Account’s Information
@@ -48,7 +48,7 @@ nasa_kepler.followers_count
 nasa_kepler.status.text
 
 # 13.9 Introduction to Tweepy Cursors: Getting an Account’s Followers and Friends
-# 13.9.1 Determining an Account’s Followers 
+# 13.9.1 Determining an Account’s Followers
 followers = []
 
 # Creating a Cursor
@@ -57,10 +57,10 @@ cursor = tweepy.Cursor(api.followers, screen_name='nasa')
 # Getting Results
 for account in cursor.items(10):
     followers.append(account.screen_name)
-    
-print('Followers:', 
+
+print('Followers:',
       ' '.join(sorted(followers, key=lambda s: s.lower())))
-    
+
 # Automatic Paging
 
 # Getting Follower IDs Rather Than Followers
@@ -72,10 +72,10 @@ cursor = tweepy.Cursor(api.followers, screen_name='NASAKepler')
 
 for account in cursor.items(10):
     kepler_followers.append(account.screen_name)
-    
+
 print(' '.join(kepler_followers))
 
-# 13.9.2 Determining Whom an Account Follows 
+# 13.9.2 Determining Whom an Account Follows
 friends = []
 
 cursor = tweepy.Cursor(api.friends, screen_name='nasa')
@@ -83,21 +83,21 @@ cursor = tweepy.Cursor(api.friends, screen_name='nasa')
 for friend in cursor.items(10):
     friends.append(friend.screen_name)
 
-print('Friends:', 
+print('Friends:',
       ' '.join(sorted(friends, key=lambda s: s.lower())))
-    
+
 # 13.9.3 Getting a User’s Recent Tweets
 nasa_tweets = api.user_timeline(screen_name='nasa', count=3)
 
 for tweet in nasa_tweets:
     print(f'{tweet.user.screen_name}: {tweet.text}\n')
-    
+
 # Grabbing Recent Tweets from Your Own Timeline
 
 # Self Check 2
 kepler_tweets = api.user_timeline(
     screen_name='NASAKepler', count=2)
-    
+
 for tweet in kepler_tweets:
     print(f'{tweet.user.screen_name}: {tweet.text}\n')
 
@@ -145,13 +145,13 @@ trends_list[0]
 
 trends_list = [t for t in trends_list if t['tweet_volume']]
 
-from operator import itemgetter 
+from operator import itemgetter
 
-trends_list.sort(key=itemgetter('tweet_volume'), reverse=True) 
+trends_list.sort(key=itemgetter('tweet_volume'), reverse=True)
 
 for trend in trends_list[:5]:
     print(trend['name'])
-    
+
 # New York City Trending Topics
 nyc_trends = api.trends_place(id=2459115)  # New York City WOEID
 
@@ -159,11 +159,11 @@ nyc_list = nyc_trends[0]['trends']
 
 nyc_list = [t for t in nyc_list if t['tweet_volume']]
 
-nyc_list.sort(key=itemgetter('tweet_volume'), reverse=True) 
+nyc_list.sort(key=itemgetter('tweet_volume'), reverse=True)
 
 for trend in nyc_list[:5]:
     print(trend['name'])
-    
+
 # Self Check 3
 us_trends = api.trends_place(id='23424977')
 
@@ -175,18 +175,18 @@ us_list.sort(key=itemgetter('tweet_volume'), reverse=True)
 
 for trend in us_list[:3]:
     print(trend['name'])
-    
+
 # 13.11.3 Create a Word Cloud from Trending Topics
 topics = {}
 
 for trend in nyc_list:
     topics[trend['name']] = trend['tweet_volume']
-    
+
 from wordcloud import WordCloud
 
 wordcloud = WordCloud(width=1600, height=900,
-    prefer_horizontal=0.5, min_font_size=10, colormap='prism', 
-    background_color='white')                   
+    prefer_horizontal=0.5, min_font_size=10, colormap='prism',
+    background_color='white')
 
 wordcloud = wordcloud.fit_words(topics)
 

@@ -1,5 +1,5 @@
 # Section 12.3.2 snippets
-# NOTE: This section's self check snippets are included in this file 
+# NOTE: This section's self check snippets are included in this file
 # because the interactive session continues into the self check.
 
 # Loading the Text
@@ -13,11 +13,11 @@ import imageio
 mask_image = imageio.imread('mask_heart.png')
 
 # Configuring the WordCloud Object
-from wordcloud import WordCloud   
+from wordcloud import WordCloud
 
-wordcloud = WordCloud(width=1000, height=1000, 
+wordcloud = WordCloud(width=1000, height=1000,
     colormap='prism', mask=mask_image, background_color='white')
-   
+
 
 # Generating the Word Cloud
 wordcloud = wordcloud.generate(text)
@@ -38,7 +38,7 @@ mask_image2 = imageio.imread('mask_star.png')
 
 wordcloud2 = WordCloud(width=1000, height=1000,
     colormap='prism', mask=mask_image2, background_color='white')
-    
+
 wordcloud2 = wordcloud2.generate(text)
 
 wordcloud2 = wordcloud2.to_file('RomeoAndJulietStar.png')

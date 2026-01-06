@@ -10,7 +10,7 @@ client = tweepy.Client(bearer_token=keys.bearer_token,
                        wait_on_rate_limit=True)
 
 #13.8 Getting Information About a Twitter Account
-nasa = client.get_user(username='NASA', 
+nasa = client.get_user(username='NASA',
     user_fields=['description', 'public_metrics'])
 
 # tweepy.Response Object
@@ -32,7 +32,7 @@ nasa.data.public_metrics['following_count']
 
 # 13.8 Self Check
 # Exercise 2
-nasa_mars = client.get_user(username='NASAMars', 
+nasa_mars = client.get_user(username='NASAMars',
     user_fields=['description', 'public_metrics'])
 
 nasa_mars.data.id
@@ -56,12 +56,12 @@ paginator = tweepy.Paginator(
 # Getting Results
 for follower in paginator.flatten(limit=10):
     followers.append(follower.username)
-    
-print('Followers:', 
+
+print('Followers:',
       ' '.join(sorted(followers, key=lambda s: s.lower())))
 
 # 13.9.1 Self Check
-# Exercise 3. 
+# Exercise 3.
 nasa_mars_followers = []
 
 nasa_mars_followers_paginator = tweepy.Paginator(
@@ -69,7 +69,7 @@ nasa_mars_followers_paginator = tweepy.Paginator(
 
 for follower in nasa_mars_followers_paginator.flatten(limit=10):
     nasa_mars_followers.append(follower.username)
-    
+
 print(' '.join(nasa_mars_followers))
 
 # 13.9.2 Determining Whom an Account Follows
@@ -80,8 +80,8 @@ paginator = tweepy.Paginator(
 
 for user_followed in paginator.flatten(limit=10):
     following.append(user_followed.username)
-    
-print('Following:', 
+
+print('Following:',
       ' '.join(sorted(following, key=lambda s: s.lower())))
 
 
@@ -107,7 +107,7 @@ from tweetutilities import print_tweets
 
 # Searching for Specific Words
 tweets = client.search_recent_tweets(
-    query='Webb Space Telescope', 
+    query='Webb Space Telescope',
     expansions=['author_id'], tweet_fields=['lang'])
 
 print_tweets(tweets)
@@ -118,20 +118,20 @@ print_tweets(tweets)
 
 # Searching for Tweets From NASA Containing Links
 tweets = client.search_recent_tweets(
-    query='from:NASA has:links', 
+    query='from:NASA has:links',
     expansions=['author_id'], tweet_fields=['lang'])
 
 print_tweets(tweets)
 
 # Searching for a Hashtag
-tweets = client.search_recent_tweets(query='#metaverse', 
+tweets = client.search_recent_tweets(query='#metaverse',
     expansions=['author_id'], tweet_fields=['lang'])
 
 print_tweets(tweets)
 
 # 13.10 Self Check
-# Exercise 
-tweets = client.search_recent_tweets(query='from:nasa astronaut', 
+# Exercise
+tweets = client.search_recent_tweets(query='from:nasa astronaut',
     expansions=['author_id'], tweet_fields=['lang'])
 
 print_tweets(tweets)
@@ -162,20 +162,20 @@ trends_list[0]
 
 trends_list = [t for t in trends_list if t['tweet_volume']]
 
-from operator import itemgetter 
-trends_list.sort(key=itemgetter('tweet_volume'), reverse=True) 
+from operator import itemgetter
+trends_list.sort(key=itemgetter('tweet_volume'), reverse=True)
 
 for trend in trends_list:
     print(trend['name'])
 
 # New York City Trending Topics
-nyc_trends = api.get_place_trends(id=2459115) 
+nyc_trends = api.get_place_trends(id=2459115)
 
 nyc_list = nyc_trends[0]['trends']
 
 nyc_list = [t for t in nyc_list if t['tweet_volume']]
 
-nyc_list.sort(key=itemgetter('tweet_volume'), reverse=True) 
+nyc_list.sort(key=itemgetter('tweet_volume'), reverse=True)
 
 for trend in nyc_list[:5]:
     print(trend['name'])
@@ -202,8 +202,8 @@ for trend in nyc_list:
 from wordcloud import WordCloud
 
 wordcloud = WordCloud(width=1600, height=900,
-    prefer_horizontal=0.5, min_font_size=10, colormap='prism', 
-    background_color='white')       
+    prefer_horizontal=0.5, min_font_size=10, colormap='prism',
+    background_color='white')
 
 wordcloud = wordcloud.fit_words(topics)
 
@@ -216,7 +216,7 @@ topics = {}
 
 for trend in us_list:
     topics[trend['name']] = trend['tweet_volume']
-        
+
 wordcloud = wordcloud.fit_words(topics)
 
 wordcloud = wordcloud.to_file('USTrendingTwitter.png')

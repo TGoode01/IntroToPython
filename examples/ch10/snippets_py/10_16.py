@@ -71,7 +71,7 @@ axes.set_ylim(10, 70)
 
 # Getting Time Series Datasets
 
-# Self Check Exercises 
+# Self Check Exercises
 # Exercise 3
 year = 2019
 

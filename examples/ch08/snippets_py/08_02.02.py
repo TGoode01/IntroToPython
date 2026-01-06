@@ -6,14 +6,14 @@ f'[{3.5:10f}]'
 
 f'[{"hello":10}]'
 
-# Explicitly Specifying Left and Right Alignment in a Field 
+# Explicitly Specifying Left and Right Alignment in a Field
 f'[{27:<15d}]'
 
 f'[{3.5:<15f}]'
 
 f'[{"hello":>15}]'
 
-# Centering a Value in a Field 
+# Centering a Value in a Field
 f'[{27:^7d}]'
 
 f'[{3.5:^7f}]'

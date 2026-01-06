@@ -17,9 +17,9 @@ numbers += 10
 
 numbers
 
-# Broadcasting 
+# Broadcasting
 
-# Arithmetic Operations Between arrays 
+# Arithmetic Operations Between arrays
 numbers2 = np.linspace(1.1, 5.5, 5)
 
 numbers2

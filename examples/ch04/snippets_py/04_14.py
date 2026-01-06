@@ -7,7 +7,7 @@ ceil(10.3)
 
 floor(10.7)
 
-# Caution: Avoid Wildcard Imports 
+# Caution: Avoid Wildcard Imports
 e = 'hello'
 
 from math import *

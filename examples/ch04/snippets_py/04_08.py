@@ -2,10 +2,10 @@
 
 import math
 
-ma # press <Tab> after ma  
+ma # press <Tab> after ma
 
 # Viewing Identifiers in a Module
-math. # press <Tab> after the dot   
+math. # press <Tab> after the dot
 
 # Using the Currently Highlighted Function
 math.fabs?

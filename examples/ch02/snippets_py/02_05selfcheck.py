@@ -1,6 +1,6 @@
 # Section 2.5 Self Check snippets
 print("""This is a lengthy
-   multiline string containing 
+   multiline string containing
 a few lines \
 of text""")
 

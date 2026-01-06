@@ -3,12 +3,12 @@ for number in range(100):
     if number == 10:
         break
     print(number, end=' ')
-    
+
 for number in range(10):
     if number == 5:
         continue
     print(number, end=' ')
-    
+
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #

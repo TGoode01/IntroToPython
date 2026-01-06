@@ -3,17 +3,17 @@
 # Exercise 3
 import json
 
-grades_dict = {'gradebook': 
+grades_dict = {'gradebook':
     [{'student_id': 1, 'name': 'Red', 'grade': 'A'},
      {'student_id': 2, 'name': 'Green', 'grade': 'B'},
-     {'student_id': 3, 'name': 'White', 'grade': 'A'}]}    
+     {'student_id': 3, 'name': 'White', 'grade': 'A'}]}
 
 with open('grades.json', 'w') as grades:
-    json.dump(grades_dict, grades)    
+    json.dump(grades_dict, grades)
 
 with open('grades.json', 'r') as grades:
     print(json.dumps(json.load(grades), indent=4))
-    
+
 
 
 

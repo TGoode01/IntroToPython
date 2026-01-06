@@ -1,0 +1,64 @@
+# ============================================================
+# CITATION.cff (Citation File Format)
+# ============================================================
+
+# REQ.UNIVERSAL: Professional open projects SHOULD include CITATION.cff.
+# WHY: Support correct citation and attribution.
+# USAGE: Update fields below; see https://citation-file-format.github.io/ for details.
+
+cff-version: "1.2.0"
+type: software
+title: "IntroToPython Tooling (Setup + Runner)"
+version: "0.1.0"
+date-released: "2026-01-06"
+
+authors:
+  - family-names: Case
+    given-names: Denise M.
+    orcid: "https://orcid.org/0000-0001-6165-7389"
+
+repository-code: "https://github.com/denisecase/IntroToPython"
+url: "https://github.com/denisecase/IntroToPython"
+
+license: MIT
+
+abstract: >
+  Tooling and setup notes for working with the textbook example code from
+  "Intro to Python for Computer Science and Data Science". This repository
+  does not redistribute the book's example files; it provides reproducible
+  local setup and run instructions.
+
+keywords:
+  - python
+  - education
+  - textbook
+  - programming
+  - setup
+  - virtual-environment
+  - uv
+
+references:
+  - type: book
+    title: "Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and the Cloud"
+    authors:
+      - family-names: Deitel
+        given-names: Paul
+      - family-names: Deitel
+        given-names: Harvey
+    publisher:
+      name: "Pearson Education, Inc."
+    year: 2020
+
+preferred-citation:
+  type: book
+  title: "Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and the Cloud"
+  authors:
+    - family-names: Deitel
+      given-names: Paul
+    - family-names: Deitel
+      given-names: Harvey
+  publisher:
+    name: "Pearson Education, Inc."
+  year: 2020
+
+message: "If you use this repository, please cite the book (preferred) and/or this tooling repo as appropriate."

@@ -1,18 +1,18 @@
 # Section 4.15 snippets
 
-# Built-In Function id and Object Identities 
+# Built-In Function id and Object Identities
 x = 7
 
 id(x)
 
-# Passing an Object to a Function 
+# Passing an Object to a Function
 def cube(number):
     print('id(number):', id(number))
     return number ** 3
 
 cube(x)
 
-# Testing Object Identities with the is Operator 
+# Testing Object Identities with the is Operator
 def cube(number):
     print('number is x:', number is x)  # x is a global variable
     return number ** 3

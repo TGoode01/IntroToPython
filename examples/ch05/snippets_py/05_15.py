@@ -23,7 +23,7 @@ reversed_numbers
 # Combining Iterables into Tuples of Corresponding Elements
 names = ['Bob', 'Sue', 'Amanda']
 
-grade_point_averages = [3.5, 4.0, 3.75] 
+grade_point_averages = [3.5, 4.0, 3.75]
 
 for name, gpa in zip(names, grade_point_averages):
     print(f'Name={name}; GPA={gpa}')

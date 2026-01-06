@@ -3,7 +3,7 @@ factorial = 1
 
 for number in range(5, 0, -1):
     factorial *= number
-    
+
 factorial
 
 

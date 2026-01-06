@@ -32,7 +32,7 @@ if key in numbers:
     print(f'found {key} at index {numbers.index(search_key)}')
 else:
     print(f'{key} not found')
-    
+
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #

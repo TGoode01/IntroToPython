@@ -46,7 +46,7 @@ grades.dtype
 
 grades.values
 
-# Creating a Series of Strings 
+# Creating a Series of Strings
 hardware = pd.Series(['Hammer', 'Saw', 'Wrench'])
 
 hardware

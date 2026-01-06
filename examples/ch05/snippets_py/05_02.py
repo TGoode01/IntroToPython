@@ -10,7 +10,7 @@ c[0]
 
 c[4]
 
-# Determining a List’s Length 
+# Determining a List’s Length
 len(c)
 
 # Accessing Elements from the End of the List with Negative Indices
@@ -48,7 +48,7 @@ a_list = []
 
 for number in range(1, 6):
     a_list += [number]
-    
+
 a_list
 
 letters = []
@@ -67,7 +67,7 @@ concatenated_list = list1 + list2
 concatenated_list
 
 # Using for and range to Access List Indices and Values
-for i in range(len(concatenated_list)):  
+for i in range(len(concatenated_list)):
     print(f'{i}: {concatenated_list[i]}')
 
 # Comparison Operators

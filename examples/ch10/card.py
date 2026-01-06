@@ -28,7 +28,7 @@ class Card:
 
     def __repr__(self):
         """Return string representation for repr()."""
-        return f"Card(face='{self.face}', suit='{self.suit}')"     
+        return f"Card(face='{self.face}', suit='{self.suit}')"
 
     def __str__(self):
         """Return string representation for str()."""

@@ -35,7 +35,7 @@ sample_list.extend((4, 5, 6))  # note the extra parentheses
 
 sample_list
 
-# Removing the First Occurrence of an Element in a List 
+# Removing the First Occurrence of an Element in a List
 color_names.remove('green')
 
 color_names
@@ -47,12 +47,12 @@ color_names.clear()
 color_names
 
 # Counting the Number of Occurrences of an Item
-responses = [1, 2, 5, 4, 3, 5, 2, 1, 3, 3, 
+responses = [1, 2, 5, 4, 3, 5, 2, 1, 3, 3,
              1, 4, 3, 3, 3, 2, 3, 3, 2, 2]
 
 for i in range(1, 6):
     print(f'{i} appears {responses.count(i)} times in responses')
-    
+
 # Reversing a List’s Elements
 color_names = ['red', 'orange', 'yellow', 'green', 'blue']
 

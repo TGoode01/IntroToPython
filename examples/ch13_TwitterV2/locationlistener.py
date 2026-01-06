@@ -7,21 +7,21 @@ from tweetutilities import get_tweet_content
 class LocationListener(tweepy.StreamingClient):
     """Handles incoming Tweet stream to get location data."""
 
-    def __init__(self, bearer_token, counts_dict, 
+    def __init__(self, bearer_token, counts_dict,
                  tweets_list, topic, limit=10):
         """Configure the LocationListener."""
         self.tweets_list = tweets_list
         self.counts_dict = counts_dict
         self.topic = topic
         self.TWEET_LIMIT = limit
-        super().__init__(bearer_token, wait_on_rate_limit=True) 
+        super().__init__(bearer_token, wait_on_rate_limit=True)
 
     def on_response(self, response):
         """Called when Twitter pushes a new tweet to you."""
 
         # get tweet's username, text and location
-        tweet_data = get_tweet_content(response)  
-        
+        tweet_data = get_tweet_content(response)
+
         # ignore retweets and tweets that do not contain the topic
         if (tweet_data['text'].startswith('RT') or
             self.topic.lower() not in tweet_data['text'].lower()):
@@ -30,7 +30,7 @@ class LocationListener(tweepy.StreamingClient):
         self.counts_dict['total_tweets'] += 1 # it's an original tweet
 
         # ignore tweets with no location
-        if not tweet_data.get('location'):  
+        if not tweet_data.get('location'):
             return
 
         self.counts_dict['locations'] += 1 # user account has location

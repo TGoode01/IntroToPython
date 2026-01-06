@@ -1,5 +1,5 @@
 # SimpleLanguageTranslator.py
-"""Use IBM Watson Speech to Text, Language Translator and Text to Speech 
+"""Use IBM Watson Speech to Text, Language Translator and Text to Speech
    APIs to enable English and Spanish speakers to communicate."""
 from watson_developer_cloud import SpeechToTextV1
 from watson_developer_cloud import LanguageTranslatorV3
@@ -55,19 +55,19 @@ def run_translator():
 
 def speech_to_text(file_name, model_id):
     """Use Watson Speech to Text to convert audio file to text."""
-    # create Watson Speech to Text client 
+    # create Watson Speech to Text client
     stt = SpeechToTextV1(iam_apikey=keys.speech_to_text_key)
 
-    # open the audio file 
+    # open the audio file
     with open(file_name, 'rb') as audio_file:
         # pass the file to Watson for transcription
         result = stt.recognize(audio=audio_file,
             content_type='audio/wav', model=model_id).get_result()
-        
+
     # Get the 'results' list. This may contain intermediate and final
-    # results, depending on method recognize's arguments. We asked 
+    # results, depending on method recognize's arguments. We asked
     # for only final results, so this list contains one element.
-    results_list = result['results'] 
+    results_list = result['results']
 
     # Get the final speech recognition result--the list's only element.
     speech_recognition_result  = results_list[0]
@@ -80,14 +80,14 @@ def speech_to_text(file_name, model_id):
     # Get the only alternative transcription from alternatives_list.
     first_alternative = alternatives_list[0]
 
-    # Get the 'transcript' key's value, which contains the audio's 
+    # Get the 'transcript' key's value, which contains the audio's
     # text transcription.
     transcript = first_alternative['transcript']
 
     return transcript  # return the audio's text transcription
 
 def translate(text_to_translate, model):
-    """Use Watson Language Translator to translate English to Spanish 
+    """Use Watson Language Translator to translate English to Spanish
        (en-es) or Spanish to English (es-en) as specified by model."""
     # create Watson Translator client
     language_translator = LanguageTranslatorV3(version='2018-05-31',
@@ -97,11 +97,11 @@ def translate(text_to_translate, model):
     translated_text = language_translator.translate(
         text=text_to_translate, model_id=model).get_result()
 
-    # Get 'translations' list. If method translate's text argument has 
+    # Get 'translations' list. If method translate's text argument has
     # multiple strings, the list will have multiple entries. We passed
     # one string, so the list contains only one element.
     translations_list = translated_text['translations']
-    
+
     # get translations_list's only element
     first_translation = translations_list[0]
 
@@ -118,7 +118,7 @@ def text_to_speech(text_to_speak, voice_to_use, file_name):
 
     # open file and write the synthesized audio content into the file
     with open(file_name, 'wb') as audio_file:
-        audio_file.write(tts.synthesize(text_to_speak, 
+        audio_file.write(tts.synthesize(text_to_speak,
             accept='audio/wav', voice=voice_to_use).get_result().content)
 
 def record_audio(file_name):
@@ -128,11 +128,11 @@ def record_audio(file_name):
     FORMAT = pyaudio.paInt16  # each frame is a 16-bit (2-byte) integer
     CHANNELS = 2  # 2 samples per frame
     SECONDS = 5  # total recording time
- 
+
     recorder = pyaudio.PyAudio()  # opens/closes audio streams
 
     # configure and open audio stream for recording (input=True)
-    audio_stream = recorder.open(format=FORMAT, channels=CHANNELS, 
+    audio_stream = recorder.open(format=FORMAT, channels=CHANNELS,
         rate=FRAME_RATE, input=True, frames_per_buffer=CHUNK)
     audio_frames = []  # stores raw bytes of mic input
     print('Recording 5 seconds of audio')
@@ -143,7 +143,7 @@ def record_audio(file_name):
 
     print('Recording complete')
     audio_stream.stop_stream()  # stop recording
-    audio_stream.close()  
+    audio_stream.close()
     recorder.terminate()  # release underlying resources used by PyAudio
 
     # save audio_frames to a WAV file

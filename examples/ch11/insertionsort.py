@@ -5,24 +5,24 @@ from ch11utilities import print_pass
 
 def insertion_sort(data):
     """Sort an array using insertion sort."""
-    # loop over len(data) - 1 elements      
+    # loop over len(data) - 1 elements
     for next in range(1, len(data)):
-        insert = data[next]  # value to insert 
+        insert = data[next]  # value to insert
         move_item = next  # location to place element
 
-        # search for place to put current element         
-        while move_item > 0 and data[move_item - 1] > insert:  
+        # search for place to put current element
+        while move_item > 0 and data[move_item - 1] > insert:
             # shift element right one slot
-            data[move_item] = data[move_item - 1]         
-            move_item -= 1                                      
-                                              
-        data[move_item] = insert  # place inserted element 
+            data[move_item] = data[move_item - 1]
+            move_item -= 1
+
+        data[move_item] = insert  # place inserted element
         print_pass(data, next, move_item)  # output pass of algorithm
 
-def main(): 
+def main():
     data = np.array([35, 73, 90, 65, 23, 86, 43, 81, 34, 58])
     print(f'Unsorted array: {data}\n')
-    insertion_sort(data) 
+    insertion_sort(data)
     print(f'\nSorted array: {data}\n')
 
 # call main if this file is executed as a script

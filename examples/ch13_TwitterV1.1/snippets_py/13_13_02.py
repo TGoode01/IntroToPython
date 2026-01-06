@@ -4,26 +4,26 @@ import tweepy
 
 import keys
 
-auth = tweepy.OAuthHandler(keys.consumer_key, 
-                           keys.consumer_secret)               
+auth = tweepy.OAuthHandler(keys.consumer_key,
+                           keys.consumer_secret)
 
-auth.set_access_token(keys.access_token, 
+auth.set_access_token(keys.access_token,
                       keys.access_token_secret)
-                 
-api = tweepy.API(auth, wait_on_rate_limit=True, 
-                 wait_on_rate_limit_notify=True)               
 
-# Creating a TweetListener 
+api = tweepy.API(auth, wait_on_rate_limit=True,
+                 wait_on_rate_limit_notify=True)
+
+# Creating a TweetListener
 from tweetlistener import TweetListener
 
 tweet_listener = TweetListener(api)
 
-# Creating a Stream 
-tweet_stream = tweepy.Stream(auth=api.auth, 
+# Creating a Stream
+tweet_stream = tweepy.Stream(auth=api.auth,
                              listener=tweet_listener)
-                 
+
 # Starting the TweetListeneret Stream
-tweet_stream.filter(track=['Mars Rover'], is_async=True) 
+tweet_stream.filter(track=['Mars Rover'], is_async=True)
 
 # Asynchronous vs. Synchronous Streams
 

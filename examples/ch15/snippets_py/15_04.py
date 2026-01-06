@@ -15,7 +15,7 @@ nyc.head(3)
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
-     nyc.Date.values.reshape(-1, 1), nyc.Temperature.values, 
+     nyc.Date.values.reshape(-1, 1), nyc.Temperature.values,
      random_state=11)
 
 X_train.shape
@@ -43,7 +43,7 @@ for p, e in zip(predicted[::5], expected[::5]):
 
 # Predicting Future Temperatures and Estimating Past Temperatures
 
-predict = (lambda x: linear_regression.coef_ * x + 
+predict = (lambda x: linear_regression.coef_ * x +
                       linear_regression.intercept_)
 
 predict(2019)
@@ -64,7 +64,7 @@ x = np.array([min(nyc.Date.values), max(nyc.Date.values)])
 
 y = predict(x)
 
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 
 line = plt.plot(x, y)
 

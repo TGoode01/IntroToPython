@@ -7,7 +7,7 @@ unique_words = set(text.split())
 
 for word in sorted(unique_words):
     print(word, end='  ')
-    
+
 
 
 

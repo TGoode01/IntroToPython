@@ -10,20 +10,20 @@ wake_up
 
 print(wake_up)
 
-# Getting an Attribute Via a Property 
+# Getting an Attribute Via a Property
 wake_up.hour
 
-# Setting the `Time` 
+# Setting the `Time`
 wake_up.set_time(hour=7, minute=45)
 
 wake_up
 
-# Setting an Attribute via a Property 
+# Setting an Attribute via a Property
 wake_up.hour = 6
 
 wake_up
 
-# Attempting to Set an Invalid Value 
+# Attempting to Set an Invalid Value
 wake_up.hour = 100
 
 

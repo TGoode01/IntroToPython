@@ -4,10 +4,10 @@ from decimal import Decimal
 
 class Account:
     """Account class for demonstrating doctest."""
-    
+
     def __init__(self, name, balance):
         """Initialize an Account object.
-        
+
         >>> account1 = Account('John Green', Decimal('50.00'))
         >>> account1.name
         'John Green'
@@ -30,12 +30,12 @@ class Account:
 
     def deposit(self, amount):
         """Deposit money to the account.
-        
+
         >>> account1 = Account('John Green', Decimal('50.00'))
         >>> account1.deposit(Decimal('10.55'))
         >>> account1.balance
         Decimal('60.55')
-        
+
         >>> account1.deposit(Decimal('-100.00'))
         Traceback (most recent call last):
             ...

@@ -1,6 +1,6 @@
 # Section 8.13 snippets
 
-# Cleaning Your Data 
+# Cleaning Your Data
 
 # Data Validation
 import pandas as pd
@@ -24,7 +24,7 @@ cities.str.match(r' [A-Z]{2} ')
 contacts = [['Mike Green', 'demo1@deitel.com', '5555555555'],
             ['Sue Brown', 'demo2@deitel.com', '5555551234']]
 
-contactsdf = pd.DataFrame(contacts, 
+contactsdf = pd.DataFrame(contacts,
                           columns=['Name', 'Email', 'Phone'])
 
 contactsdf

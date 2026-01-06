@@ -1,7 +1,7 @@
 # 13.15.1 Getting and Mapping the Tweets¶
 
 # Collections Required By LocationListener
-tweets = [] 
+tweets = []
 
 counts = {'total_tweets': 0, 'locations': 0}
 
@@ -26,14 +26,14 @@ rules = location_listener.get_rules().data
 
 rule_ids = [rule.id for rule in rules]
 
-location_listener.delete_rules(rule_ids)    
+location_listener.delete_rules(rule_ids)
 
 # Create a StreamRule
 location_listener.add_rules(
     tweepy.StreamRule('football lang:en'))
 
 # Configure and Start the Stream of Tweets
-location_listener.filter(expansions=['author_id'], 
+location_listener.filter(expansions=['author_id'],
     user_fields=['location'], tweet_fields=['lang'])
 
 # Displaying the Location Statistics
@@ -63,14 +63,14 @@ df = df.dropna()
 # Creating a Map with Folium
 import folium
 
-usmap = folium.Map(location=[39.8283, -98.5795], 
-    tiles='Stamen Terrain', zoom_start=5, detect_retina=True)        
+usmap = folium.Map(location=[39.8283, -98.5795],
+    tiles='Stamen Terrain', zoom_start=5, detect_retina=True)
 
 # Creating Popup Markers for the Tweet Locations
 for t in df.itertuples():
      text = ': '.join([t.username, t.text])
      popup = folium.Popup(text, parse_html=True)
-     marker = folium.Marker((t.latitude, t.longitude), 
+     marker = folium.Marker((t.latitude, t.longitude),
                             popup=popup)
      marker.add_to(usmap)
 

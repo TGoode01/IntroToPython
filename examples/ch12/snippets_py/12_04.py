@@ -1,5 +1,5 @@
 # Section 12.4 snippets
-# NOTE: This section's self check snippets are included in this file 
+# NOTE: This section's self check snippets are included in this file
 # because the interactive session continues into the self check.
 
 # Calculating Statistics and Readability Scores

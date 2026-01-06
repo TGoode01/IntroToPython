@@ -89,20 +89,20 @@ iris_pca = pca.transform(iris.data)
 iris_pca.shape
 
 # Visualizing the Reduced Data
-iris_pca_df = pd.DataFrame(iris_pca, 
+iris_pca_df = pd.DataFrame(iris_pca,
                             columns=['Component1', 'Component2'])
 
 iris_pca_df['species'] = iris_df.species
 
-axes = sns.scatterplot(data=iris_pca_df, x='Component1', 
-     y='Component2', hue='species', legend='brief', 
+axes = sns.scatterplot(data=iris_pca_df, x='Component1',
+     y='Component2', hue='species', legend='brief',
      palette='cool')
 
 iris_centers = pca.transform(kmeans.cluster_centers_)
 
 import matplotlib.pyplot as plt
 
-dots = plt.scatter(iris_centers[:,0], iris_centers[:,1], 
+dots = plt.scatter(iris_centers[:,0], iris_centers[:,1],
                     s=100, c='k')
 
 # 15.7.6 Choosing the Best Clustering Estimator
@@ -114,7 +114,7 @@ estimators = {
     'DBSCAN': DBSCAN(),
     'MeanShift': MeanShift(),
     'SpectralClustering': SpectralClustering(n_clusters=3),
-    'AgglomerativeClustering': 
+    'AgglomerativeClustering':
         AgglomerativeClustering(n_clusters=3)
 }
 
@@ -129,4 +129,3 @@ for name, estimator in estimators.items():
          print(f'{i}-{i+50}:')
          for label, count in zip(labels, counts):
              print(f'   label={label}, count={count}')
-             

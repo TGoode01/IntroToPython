@@ -3,7 +3,7 @@
 # Exercise 2
 import spacy
 
-nlp = spacy.load('en')  
+nlp = spacy.load('en')
 
 from pathlib import Path
 

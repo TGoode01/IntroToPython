@@ -8,7 +8,7 @@ import re
 contacts = [['Mike Green', 'demo1@deitel.com', '5555555555'],
             ['Sue Brown', 'demo2@deitel.com', '5555551234']]
 
-contactsdf = pd.DataFrame(contacts, 
+contactsdf = pd.DataFrame(contacts,
                           columns=['Name', 'Email', 'Phone'])
 
 def get_formatted_phone(value):
@@ -16,7 +16,7 @@ def get_formatted_phone(value):
     if result:
         part1, part2, part3 = result.groups()
         return '(' + part1 + ') ' + part2 + '-' + part3
-    else:       
+    else:
         return value
 
 contactsdf['Phone'] = contactsdf['Phone'].map(get_formatted_phone)

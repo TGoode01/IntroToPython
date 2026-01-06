@@ -9,7 +9,7 @@ sum(values)  # same call always returns same result
 values
 
 
-   
+
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #

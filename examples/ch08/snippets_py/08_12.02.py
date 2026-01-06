@@ -1,13 +1,13 @@
 # Section 8.12.2 snippets
 
-# Function sub—Replacing Patterns 
+# Function sub—Replacing Patterns
 import re
 
 re.sub(r'\t', ', ', '1\t2\t3\t4')
 
 re.sub(r'\t', ', ', '1\t2\t3\t4', count=2)
 
-# Function split 
+# Function split
 re.split(r',\s*', '1,  2,  3,4,    5,6,7,8')
 
 re.split(r',\s*', '1,  2,  3,4,    5,6,7,8', maxsplit=3)

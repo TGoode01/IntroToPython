@@ -14,7 +14,7 @@ class TweetListener(tweepy.StreamListener):
         super().__init__(api)  # call superclass's init
 
     def on_connect(self):
-        """Called when your connection attempt is successful, enabling 
+        """Called when your connection attempt is successful, enabling
         you to perform appropriate application tasks at that point."""
         print('Successfully connected to Twitter\n')
 
@@ -23,13 +23,13 @@ class TweetListener(tweepy.StreamListener):
         self.tweet_count += 1  # track number of tweets processed
         json_data = json.loads(data)  # convert string to JSON
         self.db.tweets.insert_one(json_data)  # store in tweets collection
-        print(f'    Screen name: {json_data["user"]["name"]}') 
-        print(f'     Created at: {json_data["created_at"]}')         
-        print(f'Tweets received: {self.tweet_count}')         
+        print(f'    Screen name: {json_data["user"]["name"]}')
+        print(f'     Created at: {json_data["created_at"]}')
+        print(f'Tweets received: {self.tweet_count}')
 
         # if TWEET_LIMIT is reached, return False to terminate streaming
         return self.tweet_count != self.TWEET_LIMIT
-    
+
     def on_error(self, status):
         print(f'Error: {status}')
         return True

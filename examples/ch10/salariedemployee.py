@@ -8,7 +8,7 @@ class SalariedEmployee(Employee):
 
     def __init__(self, first_name, last_name, ssn, weekly_salary):
         """Initialize SalariedEmployee attributes."""
-        super().__init__(first_name, last_name, ssn) 
+        super().__init__(first_name, last_name, ssn)
         self.weekly_salary = weekly_salary
 
     @property
@@ -20,16 +20,16 @@ class SalariedEmployee(Employee):
         """Set weekly_salary or raise ValueError if invalid."""
         if salary < Decimal('0.0'):
             raise ValueError('salary worked must be >= 0.0')
-        
+
         self._weekly_salary = salary
-        
+
     def earnings(self):
         """Calculate earnings."""
         return self.weekly_salary
 
     def __repr__(self):
         """Return string representation for repr()."""
-        return ('SalariedEmployee: ' + super().__repr__() + 
+        return ('SalariedEmployee: ' + super().__repr__() +
                 f'\nweekly salary: {self.weekly_salary:.2f}')
 
 

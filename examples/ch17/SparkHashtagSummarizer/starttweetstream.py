@@ -1,5 +1,5 @@
 # starttweetstream.py
-"""Script to get tweets on topic(s) specified as script argument(s) 
+"""Script to get tweets on topic(s) specified as script argument(s)
    and send tweet text to a socket for processing by Spark."""
 import keys
 import socket
@@ -17,7 +17,7 @@ class TweetListener(tweepy.StreamListener):
         super().__init__(api)  # call superclass's init
 
     def on_connect(self):
-        """Called when your connection attempt is successful, enabling 
+        """Called when your connection attempt is successful, enabling
         you to perform appropriate application tasks at that point."""
         print('Successfully connected to Twitter\n')
 
@@ -33,48 +33,48 @@ class TweetListener(tweepy.StreamListener):
         print(f'Screen name: {status.user.screen_name}:')
         print(f'   Hashtags: {hashtags_string}')
         self.tweet_count += 1  # track number of tweets processed
-                
+
         try:
             # send requires bytes, so encode the string in utf-8 format
-            self.connection.send(hashtags_string.encode('utf-8'))  
+            self.connection.send(hashtags_string.encode('utf-8'))
         except Exception as e:
             print(f'Error: {e}')
 
         # if TWEET_LIMIT is reached, return False to terminate streaming
         return self.tweet_count != self.TWEET_LIMIT
-    
+
     def on_error(self, status):
         print(status)
         return True
-        
+
 if __name__ == '__main__':
     tweet_limit = int(sys.argv[1])  # get maximum number of tweets
-    client_socket = socket.socket()  # create a socket 
-    
+    client_socket = socket.socket()  # create a socket
+
     # app will use localhost (this computer) port 9876
-    client_socket.bind(('localhost', 9876))  
- 
+    client_socket.bind(('localhost', 9876))
+
     print('Waiting for connection')
     client_socket.listen()  # wait for client to connect
-    
+
     # when connection received, get connection/client address
-    connection, address = client_socket.accept()  
+    connection, address = client_socket.accept()
     print(f'Connection received from {address}')
- 
+
     # configure Twitter access
     auth = tweepy.OAuthHandler(keys.consumer_key, keys.consumer_secret)
     auth.set_access_token(keys.access_token, keys.access_token_secret)
-    
+
     # configure Tweepy to wait if Twitter rate limits are reached
-    api = tweepy.API(auth, wait_on_rate_limit=True, 
-                     wait_on_rate_limit_notify=True)               
- 
+    api = tweepy.API(auth, wait_on_rate_limit=True,
+                     wait_on_rate_limit_notify=True)
+
     # create the Stream
-    twitter_stream = tweepy.Stream(api.auth, 
+    twitter_stream = tweepy.Stream(api.auth,
         TweetListener(api, connection, tweet_limit))
 
     # sys.argv[2] is the first search term
-    twitter_stream.filter(track=sys.argv[2:]) 
+    twitter_stream.filter(track=sys.argv[2:])
 
     connection.close()
     client_socket.close()

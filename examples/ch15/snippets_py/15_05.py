@@ -24,9 +24,9 @@ pd.set_option('max_columns', 9)
 
 pd.set_option('display.width', None)
 
-california_df = pd.DataFrame(california.data, 
+california_df = pd.DataFrame(california.data,
                               columns=california.feature_names)
- 
+
 california_df['MedHouseValue'] = pd.Series(california.target)
 
 california_df.head()
@@ -42,12 +42,12 @@ import seaborn as sns
 
 sns.set(font_scale=2)
 
-sns.set_style('whitegrid')                                    
+sns.set_style('whitegrid')
 
 for feature in california.feature_names:
      plt.figure(figsize=(16, 9))
-     sns.scatterplot(data=sample_df, x=feature, 
-                     y='MedHouseValue', hue='MedHouseValue', 
+     sns.scatterplot(data=sample_df, x=feature,
+                     y='MedHouseValue', hue='MedHouseValue',
                      palette='cool', legend=False)
 
 # 15.5.4 Splitting the Data for Training and Testing
@@ -90,7 +90,7 @@ df['Predicted'] = pd.Series(predicted)
 
 figure = plt.figure(figsize=(9, 9))
 
-axes = sns.scatterplot(data=df, x='Expected', y='Predicted', 
+axes = sns.scatterplot(data=df, x='Expected', y='Predicted',
      hue='Predicted', palette='cool', legend=False)
 
 start = min(expected.min(), predicted.min())
@@ -124,10 +124,10 @@ from sklearn.model_selection import KFold, cross_val_score
 
 for estimator_name, estimator_object in estimators.items():
      kfold = KFold(n_splits=10, random_state=11, shuffle=True)
-     scores = cross_val_score(estimator=estimator_object, 
+     scores = cross_val_score(estimator=estimator_object,
          X=california.data, y=california.target, cv=kfold,
          scoring='r2')
-     print(f'{estimator_name:>16}: ' + 
+     print(f'{estimator_name:>16}: ' +
            f'mean of r2 scores={scores.mean():.3f}')
 
 ##########################################################################

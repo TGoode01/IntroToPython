@@ -10,22 +10,22 @@ def mystery(a, b):
 mystery(2, 10)
 
 
-# 11.2. Find the logic error(s) in the following recursive function, 
-# and explain how to correct it (them). This function should find 
+# 11.2. Find the logic error(s) in the following recursive function,
+# and explain how to correct it (them). This function should find
 # the sum of the values from 0 to `n`.
 def sum(n):
     if n == 0:
         return 0
-    else: 
+    else:
         return n + sum(n)
 
 # 11.3. What does the following code do?
 def mystery(a_array, size):
     if size == 1:
         return a_array[0]
-    else: 
+    else:
         return a_array[size - 1] + mystery(a_array, size - 1)
-    
+
 import numpy as np
 
 numbers = np.arange(1, 11)

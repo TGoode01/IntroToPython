@@ -2,8 +2,8 @@
 """Utility functions for interacting with Tweepy objects."""
 from geopy import OpenMapQuest
 import keys
-from textblob import TextBlob 
-import time 
+from textblob import TextBlob
+import time
 import tweepy
 
 def get_API(wait=True, notify=True):
@@ -13,16 +13,16 @@ def get_API(wait=True, notify=True):
     auth.set_access_token(keys.access_token, keys.access_token_secret)
 
     # get the API object
-    return tweepy.API(auth, wait_on_rate_limit=wait, 
+    return tweepy.API(auth, wait_on_rate_limit=wait,
                       wait_on_rate_limit_notify=notify)
 
 def print_tweets(tweets):
-    """For each Tweepy Status object in tweets, display the 
+    """For each Tweepy Status object in tweets, display the
     user's screen_name and tweet text. If the language is not
     English, translate the text with TextBlob."""
     for tweet in tweets:
         print(f'{tweet.user.screen_name}:', end=' ')
-    
+
         if 'en' in tweet.lang:
             print(f'{tweet.text}\n')
         elif 'und' not in tweet.lang:  # translate to English first
@@ -35,9 +35,9 @@ def get_tweet_content(tweet, location=False):
     fields['screen_name'] = tweet.user.screen_name
 
     # get the tweet's text
-    try:  
+    try:
         fields['text'] = tweet.extended_tweet.full_text
-    except: 
+    except:
         fields['text'] = tweet.text
 
     if location:
@@ -50,7 +50,7 @@ def get_geocodes(tweet_list):
     Returns the number of tweets with invalid location data."""
     print('Getting coordinates for tweet locations...')
     geo = OpenMapQuest(api_key=keys.mapquest_key)  # geocoder
-    bad_locations = 0  
+    bad_locations = 0
 
     for tweet in tweet_list:
         processed = False
@@ -64,12 +64,12 @@ def get_geocodes(tweet_list):
                 time.sleep(delay)
                 delay += .1
 
-        if geo_location:  
+        if geo_location:
             tweet['latitude'] = geo_location.latitude
             tweet['longitude'] = geo_location.longitude
-        else:  
+        else:
             bad_locations += 1  # tweet['location'] was invalid
-    
+
     print('Done geocoding')
     return bad_locations
 

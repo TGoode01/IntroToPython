@@ -18,7 +18,7 @@ class LocationListener(tweepy.StreamListener):
     def on_status(self, status):
         """Called when Twitter pushes a new tweet to you."""
         # get each tweet's screen_name, text and location
-        tweet_data = get_tweet_content(status, location=True)  
+        tweet_data = get_tweet_content(status, location=True)
 
         # ignore retweets and tweets that do not contain the topic
         if (tweet_data['text'].startswith('RT') or
@@ -28,7 +28,7 @@ class LocationListener(tweepy.StreamListener):
         self.counts_dict['total_tweets'] += 1  # original tweet
 
         # ignore tweets with no location and non-English tweets
-        if not status.user.location:  
+        if not status.user.location:
             return
 
         self.counts_dict['locations'] += 1  # tweet with location

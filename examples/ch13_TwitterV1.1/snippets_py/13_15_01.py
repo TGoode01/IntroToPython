@@ -6,15 +6,15 @@ from tweetutilities import get_API
 api = get_API()
 
 # Collections Required By LocationListener
-tweets = [] 
+tweets = []
 
 counts = {'total_tweets': 0, 'locations': 0}
 
-# Creating the LocationListener 
+# Creating the LocationListener
 from locationlistener import LocationListener
 
-location_listener = LocationListener(api, counts_dict=counts, 
-    tweets_list=tweets, topic='football', limit=50)  
+location_listener = LocationListener(api, counts_dict=counts,
+    tweets_list=tweets, topic='football', limit=50)
 
 # Configure and Start the Stream of Tweets
 import tweepy
@@ -57,7 +57,7 @@ usmap = folium.Map(location=[39.8283, -98.5795], tiles='Stamen Terrain',
 for t in df.itertuples():
      text = ': '.join([t.screen_name, t.text])
      popup = folium.Popup(text, parse_html=True)
-     marker = folium.Marker((t.latitude, t.longitude), 
+     marker = folium.Marker((t.latitude, t.longitude),
                             popup=popup)
      marker.add_to(usmap)
 

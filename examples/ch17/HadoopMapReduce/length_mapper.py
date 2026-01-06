@@ -8,7 +8,7 @@ def tokenize_input():
     for line in sys.stdin:
         yield line.split()
 
-# read each line in the the standard input and for every word 
+# read each line in the the standard input and for every word
 # produce a key-value pair containing the word, a tab and 1
 for line in tokenize_input():
     for word in line:

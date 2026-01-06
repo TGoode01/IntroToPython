@@ -1,10 +1,10 @@
 # Section 6.2.1 snippets
-country_codes = {'Finland': 'fi', 'South Africa': 'za', 
+country_codes = {'Finland': 'fi', 'South Africa': 'za',
                   'Nepal': 'np'}
-                 
+
 country_codes
 
-# Determining if a Dictionary Is Empty 
+# Determining if a Dictionary Is Empty
 len(country_codes)
 
 if country_codes:
@@ -18,7 +18,7 @@ if country_codes:
     print('country_codes is not empty')
 else:
     print('country_codes is empty')
-    
+
 
 
 

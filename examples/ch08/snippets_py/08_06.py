@@ -1,5 +1,5 @@
 # Section 8.6 snippets
- 
+
 print(f'A: {ord("A")}; a: {ord("a")}')
 
 'Orange' == 'orange'

@@ -1,8 +1,8 @@
 # sentimentlisener.py
-"""Searches for tweets that match a search string and tallies 
+"""Searches for tweets that match a search string and tallies
 the number of positive, neutral and negative tweets."""
 import keys
-import preprocessor as p 
+import preprocessor as p
 import sys
 from textblob import TextBlob
 import tweepy
@@ -16,9 +16,9 @@ class SentimentListener(tweepy.StreamingClient):
         self.tweet_count = 0
         self.topic = topic
         self.TWEET_LIMIT = limit
-        
+
         # set tweet-preprocessor to remove URLs/reserved words
-        p.set_options(p.OPT.URL, p.OPT.RESERVED) 
+        p.set_options(p.OPT.URL, p.OPT.RESERVED)
         super().__init__(bearer_token, wait_on_rate_limit=True)
 
     def on_response(self, response):
@@ -36,13 +36,13 @@ class SentimentListener(tweepy.StreamingClient):
             blob = TextBlob(text)
             if blob.sentiment.polarity > 0:
                 sentiment = '+'
-                self.sentiment_dict['positive'] += 1 
+                self.sentiment_dict['positive'] += 1
             elif blob.sentiment.polarity == 0:
                 sentiment = ' '
-                self.sentiment_dict['neutral'] += 1 
+                self.sentiment_dict['neutral'] += 1
             else:
                 sentiment = '-'
-                self.sentiment_dict['negative'] += 1 
+                self.sentiment_dict['negative'] += 1
 
             # display the tweet
             username = response.includes['users'][0].username
@@ -58,12 +58,12 @@ def main():
     # get search term and number of tweets
     search_key = sys.argv[1]
     limit = int(sys.argv[2]) # number of tweets to tally
-    
+
     # set up the sentiment dictionary
     sentiment_dict = {'positive': 0, 'neutral': 0, 'negative': 0}
 
     # create the StreamingClient subclass object
-    sentiment_listener = SentimentListener(keys.bearer_token, 
+    sentiment_listener = SentimentListener(keys.bearer_token,
         sentiment_dict, search_key, limit)
 
     # redirect sys.stderr to sys.stdout
@@ -72,12 +72,12 @@ def main():
     # delete existing stream rules
     rules = sentiment_listener.get_rules().data
     rule_ids = [rule.id for rule in rules]
-    sentiment_listener.delete_rules(rule_ids)    
+    sentiment_listener.delete_rules(rule_ids)
 
     # create stream rule
     sentiment_listener.add_rules(
         tweepy.StreamRule(f'{search_key} lang:en'))
-    
+
     # start filtering English tweets containing search_key
     sentiment_listener.filter(expansions=['author_id'])
 

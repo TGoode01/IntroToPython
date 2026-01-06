@@ -1,6 +1,6 @@
 # Section 7.5 snippets
 
-# Creating Integer Ranges with arange 
+# Creating Integer Ranges with arange
 import numpy as np
 
 np.arange(5)
@@ -15,7 +15,7 @@ np.linspace(0.0, 1.0, num=5)
 # Reshaping an array
 np.arange(1, 21).reshape(4, 5)
 
-# Displaying Large arrays 
+# Displaying Large arrays
 np.arange(1, 100001).reshape(4, 25000)
 
 np.arange(1, 100001).reshape(100, 1000)

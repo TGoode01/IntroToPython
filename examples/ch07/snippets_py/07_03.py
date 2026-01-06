@@ -40,7 +40,7 @@ for row in integers:
 
 for i in integers.flat:
     print(i, end='  ')
-    
+
 
 
 ##########################################################################

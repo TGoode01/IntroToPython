@@ -4,7 +4,7 @@ from decimal import Decimal
 
 class Account:
     """Account class for maintaining a bank account balance."""
-    
+
     def __init__(self, name, balance):
         """Initialize an Account object."""
 

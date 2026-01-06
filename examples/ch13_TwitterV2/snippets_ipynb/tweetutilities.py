@@ -3,15 +3,15 @@
 from deep_translator import GoogleTranslator
 from geopy import OpenMapQuest
 import keys
-import time 
+import time
 import tweepy
 
 def print_tweets(tweets):
     # translator to autodetect source language and return English
     translator = GoogleTranslator(source='auto', target='en')
-    
+
     """For each tweet in tweets, display the username of the sender
-    and tweet text. If the language is not English, translate the text 
+    and tweet text. If the language is not English, translate the text
     with Deep Translator."""
     for tweet, user in zip(tweets.data, tweets.includes['users']):
         print(f'{user.username}:', end=' ')
@@ -36,7 +36,7 @@ def get_geocodes(tweet_list):
     Returns the number of tweets with invalid location data."""
     print('Getting coordinates for tweet locations...')
     geo = OpenMapQuest(api_key=keys.mapquest_key)  # geocoder
-    bad_locations = 0  
+    bad_locations = 0
 
     for tweet in tweet_list:
         processed = False
@@ -50,12 +50,12 @@ def get_geocodes(tweet_list):
                 time.sleep(delay)
                 delay += .1
 
-        if geo_location:  
+        if geo_location:
             tweet['latitude'] = geo_location.latitude
             tweet['longitude'] = geo_location.longitude
-        else:  
+        else:
             bad_locations += 1  # tweet['location'] was invalid
-    
+
     print('Done geocoding')
     return bad_locations
 

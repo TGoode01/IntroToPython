@@ -1,0 +1,49 @@
+# ============================================================
+# pyproject.toml (Project Configuration for Python)
+# ============================================================
+
+# REQ.PYTHON: Python projects MUST include pyproject.toml as the single source of truth.
+# WHY: Centralizes project configuration.
+
+[project]
+name = "introtopython" # CUSTOM: Package distribution name (use lowercase and dashes).
+version="0.9.0"  # WHY: start with initial version.
+description = "Environment + tooling for running IntroToPython textbook examples (examples are not redistributed)."
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "beautifulsoup4",
+    "dweepy",
+    "geopy",
+    "imageio",
+    "ipykernel",
+    "jupyterlab",
+    "matplotlib",
+    "nltk",
+    "numpy",
+    "pandas",
+    "prospector",
+    "pyaudio",
+    "pydub",
+    "pysine",
+    "scikit-learn",
+    "scipy",
+    "seaborn",
+    "spacy",
+    "textatistic",
+    "textblob",
+    "watson_developer_cloud"
+]
+
+[project.optional-dependencies]
+dev = [
+    # REQ.DEV.DEPS: External packages used for linting, testing, type checking, etc.
+    "packaging>=25.0",
+    "pre-commit>=4",
+    "validate-pyproject>=0.11.0",
+]
+docs = []
+
+[project.urls]
+Repository = "https://github.com/denisecase/IntroToPython"

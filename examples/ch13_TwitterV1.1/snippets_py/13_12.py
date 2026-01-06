@@ -1,6 +1,6 @@
 # Section 13.12 snippets
 
-import preprocessor as p 
+import preprocessor as p
 
 p.set_options(p.OPT.URL, p.OPT.RESERVED)
 

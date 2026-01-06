@@ -1,22 +1,22 @@
 # Section 7.6 snippets
 
-# Timing the Creation of a List Containing Results of 6,000,000 Die Rolls 
+# Timing the Creation of a List Containing Results of 6,000,000 Die Rolls
 import random
 
 %timeit rolls_list = \
    [random.randrange(1, 7) for i in range(0, 6_000_000)]
 
-# Timing the Creation of an array Containing Results of 6,000,000 Die Rolls  
+# Timing the Creation of an array Containing Results of 6,000,000 Die Rolls
 import numpy as np
 
 %timeit rolls_array = np.random.randint(1, 7, 6_000_000)
 
-# 60,000,000 and 600,000,000 Die Rolls  
+# 60,000,000 and 600,000,000 Die Rolls
 %timeit rolls_array = np.random.randint(1, 7, 60_000_000)
 
 %timeit rolls_array = np.random.randint(1, 7, 600_000_000)
 
-# Customizing the %timeit Iterations  
+# Customizing the %timeit Iterations
 %timeit -n3 -r2 rolls_array = np.random.randint(1, 7, 6_000_000)
 
 ##########################################################################

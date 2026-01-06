@@ -21,7 +21,7 @@ rules = tweet_listener.get_rules().data
 
 rule_ids = [rule.id for rule in rules]
 
-tweet_listener.delete_rules(rule_ids)    
+tweet_listener.delete_rules(rule_ids)
 
 # Creating and Adding a Stream Rule
 filter_rule = tweepy.StreamRule('football')

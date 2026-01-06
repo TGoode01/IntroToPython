@@ -1,37 +1,37 @@
 # Exercise 5.1
-day, high_temperature = ('Monday', 87, 65) 
+day, high_temperature = ('Monday', 87, 65)
 
 numbers = [1, 2, 3, 4, 5]
-numbers[10] 
+numbers[10]
 
 name = 'amanda'
-name[0] = 'A' 
+name[0] = 'A'
 
 numbers = [1, 2, 3, 4, 5]
-numbers[3.4] 
+numbers[3.4]
 
-student_tuple = ('Amanda', 'Blue', [98, 75, 87]) 
-student_tuple[0] = 'Ariana' 
+student_tuple = ('Amanda', 'Blue', [98, 75, 87])
+student_tuple[0] = 'Ariana'
 
-('Monday', 87, 65) + 'Tuesday' 
+('Monday', 87, 65) + 'Tuesday'
 
-'A' += ('B', 'C') 
+'A' += ('B', 'C')
 
-x = 7 
+x = 7
 del x
-print(x) 
+print(x)
 
 numbers = [1, 2, 3, 4, 5]
-numbers.index(10) 
+numbers.index(10)
 
 numbers = [1, 2, 3, 4, 5]
-numbers.extend(6, 7, 8) 
+numbers.extend(6, 7, 8)
 
 numbers = [1, 2, 3, 4, 5]
-numbers.remove(10) 
+numbers.remove(10)
 
 values = []
-values.pop() 
+values.pop()
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #

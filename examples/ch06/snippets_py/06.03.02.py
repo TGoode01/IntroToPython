@@ -1,21 +1,21 @@
 # Section 6.3.2 snippets
 
-# Union 
+# Union
 {1, 3, 5} | {2, 3, 4}
 
 {1, 3, 5}.union([20, 20, 3, 40, 40])
 
-# Intersection 
+# Intersection
 {1, 3, 5} & {2, 3, 4}
 
 {1, 3, 5}.intersection([1, 2, 2, 3, 3, 4, 4])
 
-# Difference 
+# Difference
 {1, 3, 5} - {2, 3, 4}
 
 {1, 3, 5, 7}.difference([2, 2, 3, 3, 4, 4])
 
-# Symmetric Difference 
+# Symmetric Difference
 {1, 3, 5} ^ {2, 3, 4}
 
 {1, 3, 5, 7}.symmetric_difference([2, 2, 3, 3, 4, 4])

@@ -11,7 +11,7 @@ list(filter(is_odd, numbers))
 
 [item for item in numbers if is_odd(item)]
 
-# Using a lambda Rather than a Function 
+# Using a lambda Rather than a Function
 list(filter(lambda x: x % 2 != 0, numbers))
 
 # Mapping a Sequence’s Values to New Values
@@ -22,7 +22,7 @@ list(map(lambda x: x ** 2, numbers))
 [item ** 2 for item in numbers]
 
 # Combining filter and map
-list(map(lambda x: x ** 2, 
+list(map(lambda x: x ** 2,
          filter(lambda x: x % 2 != 0, numbers)))
 
 [x ** 2 for x in numbers if x % 2 != 0]

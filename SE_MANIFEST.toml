@@ -1,0 +1,65 @@
+# ============================================================
+# SE_MANIFEST.toml (Repository Intent, Scope, and Role)
+# ============================================================
+
+schema = "se-manifest-1"
+schema_url = "https://github.com/structural-explainability/spec-se/blob/main/manifests/se-manifest-1.md"
+
+[meta]
+# Non-normative contextual information
+framework = "Structural Explainability"
+framework_url = "https://github.com/structural-explainability"
+framework_note = "Provides definitions and conventions for SE_MANIFEST semantics."
+
+description = "Declarative claim of repository intent, scope, and role."
+purpose = "To make explicit the boundaries, responsibilities, and expectations of this repository relative to others."
+
+upstream = "https://github.com/pdeitel/IntroToPython"
+upstream_note = "Canonical textbook repository; this project provides tooling and setup only and does not redistribute example files."
+
+[repo]
+name = "IntroToPython"
+org = "denisecase"
+kind = "software"
+status = "academic"
+since = "2026"
+summary = "Tooling and setup support for working with the Deitel IntroToPython textbook examples (no example code redistributed)."
+
+[layer]
+space = "Software Engineering"
+role = "curriculum-support"
+
+[depends]
+required = []
+optional = ["python>=3.12", "uv"]
+
+[provides]
+artifacts = [
+    "ANNOTATIONS.md",
+    "CITATION.cff",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "SE_MANIFEST.toml",
+]
+
+[scope]
+includes = [
+    "local environment setup for textbook examples",
+    "reproducible execution instructions",
+    "tooling configuration (pyproject, uv)",
+    "student-safe development workflow",
+]
+excludes = [
+    "redistribution of textbook example code",
+    "modification of textbook content",
+    "reinterpretation of pedagogical material",
+]
+
+[citation]
+cff = "CITATION.cff"
+preferred = "book"
+bib_hint = "deitel2020-introtopython"
+
+[traceability]
+identifier_map = "none"

@@ -11,7 +11,7 @@ counter = Counter(numbers)
 
 for value, count in sorted(counter.items()):
     print(f'{value:<4}{count}')
-    
+
 
 
 

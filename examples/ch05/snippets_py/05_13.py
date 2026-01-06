@@ -6,7 +6,7 @@ for value in (x ** 2 for x in numbers if x % 2 != 0):
 
 squares_of_odds = (x ** 2 for x in numbers if x % 2 != 0)
 
-squares_of_odds 
+squares_of_odds
 
 
 

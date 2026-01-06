@@ -9,7 +9,7 @@ except:
     print('this will not execute')
 else:
     print('else executes because no exceptions in the try suite')
-finally:  
+finally:
     print('finally always executes')
 
 try:
@@ -20,23 +20,23 @@ except ValueError:
     print('a ValueError occurred')
 else:
     print('else will not execute because an exception occurred')
-finally:  
+finally:
     print('finally always executes')
-    
-# Combining with Statements and try…except Statements 
+
+# Combining with Statements and try…except Statements
 open('gradez.txt')
 
 try:
     with open('gradez.txt', 'r') as accounts:
         print(f'{"ID":<3}{"Name":<7}{"Grade"}')
-        for record in accounts:  
+        for record in accounts:
             student_id, name, grade = record.split()
             print(f'{student_id:<3}{name:<7}{grade}')
 except FileNotFoundError:
     print('The file name you specified does not exist')
-    
 
-    
+
+
 
 ##########################################################################
 # (C) Copyright 2019 by Deitel & Associates, Inc. and                    #
