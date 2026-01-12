@@ -77,11 +77,7 @@ Open Notebooks and Click `Run All`. Select the kernel associated with this repo 
 
 If you update your copy of the examples, you might want to save progress.
 
-Save progress (some tools may make changes; re-running ensures everything is committed):
-
 ```shell
-git add -A
-git commit -m "update"
 git add -A
 git commit -m "update"
 git push -u origin main
