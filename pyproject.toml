@@ -10,7 +10,7 @@ name = "introtopython" # CUSTOM: Package distribution name (use lowercase and da
 version="0.9.0"  # WHY: start with initial version.
 description = "Environment + tooling for running IntroToPython textbook examples (examples are not redistributed)."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 
 dependencies = [
     "beautifulsoup4",
@@ -24,9 +24,7 @@ dependencies = [
     "numpy",
     "pandas",
     "prospector",
-    "pyaudio",
     "pydub",
-    "pysine",
     "scikit-learn",
     "scipy",
     "seaborn",
@@ -44,6 +42,10 @@ dev = [
     "validate-pyproject>=0.11.0",
 ]
 docs = []
+audio = [
+  "pyaudio==0.2.14",
+  "pysine==0.9.2",
+]
 
 [project.urls]
 Repository = "https://github.com/denisecase/IntroToPython"

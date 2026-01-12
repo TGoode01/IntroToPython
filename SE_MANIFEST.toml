@@ -13,6 +13,7 @@ framework_note = "Provides definitions and conventions for SE_MANIFEST semantics
 
 description = "Declarative claim of repository intent, scope, and role."
 purpose = "To make explicit the boundaries, responsibilities, and expectations of this repository relative to others."
+keywords_note = "Keywords live only in CITATION.cff (canonical)."
 
 upstream = "https://github.com/pdeitel/IntroToPython"
 upstream_note = "Canonical textbook repository; this project provides tooling and setup only and does not redistribute example files."
@@ -30,8 +31,19 @@ space = "Software Engineering"
 role = "curriculum-support"
 
 [depends]
-required = []
-optional = ["python>=3.12", "uv"]
+# WHY: These tools are required to complete and run the project as designed
+#      (local development, execution, and dependency management).
+required = [
+  "python>=3.14",
+  "uv",
+]
+# WHY: Optional tools are not required to use or run the repository.
+optional = [
+  "mkdocs",
+  "ruff",
+  "pyright",
+  "pytest",
+]
 
 [provides]
 artifacts = [

@@ -36,22 +36,26 @@ code .
 
 ### 3. Install `uv`
 
+- See [Step 3: Install Tools](https://denisecase.github.io/pro-analytics-02/01-set-up-machine/) for instructions by operating system.
+
 ### 4. Initialize (Just Once)
+
+Use VS Code menu option `Terminal` / `New Terminal` to open a **VS Code terminal** in the root project folder.
+Run the following commands, one at a time, hitting ENTER after each:
 
 ```shell
 uv self update
-uv python pin 3.12
-uvx pre-commit install
-uvx pre-commit run --all-files
-
-# Windows:
-.venv\Scripts\activate
-
-# macOS/Linux:
-# source .venv/bin/activate
-
+uv python pin 3.14
 uv sync --extra dev --extra docs --upgrade
+
+# the audio features require additional installs
+# start by adding the [audio] packages listed in pyproject.toml:
+uv sync --extra dev --extra docs --extra audio --upgrade
 ```
+
+If asked: "We noticed a new environment has been created. Do you want to select it for the workspace folder?" Click **"Yes"**.
+
+If successful, you'll see a new `.venv` folder appear in the root project folder.
 
 ### 5. Run Individual Examples
 
@@ -59,14 +63,13 @@ If you see something like this, click "Install".
 
   ![Popup](./images/install.gif)
 
-Run a file (e.g.,):
+Run a file (e.g., the Roll Die Dynamic simulation):
 
 ```shell
-uv run python examples\ch01\RollDieDynamic.py 400 1
-uv run python examples\ch11\snippets_ipynb\ch11soundutilities.py
+uv run python examples\ch01\RollDieDynamic.py 100 1
 ```
 
-If a window pops up, close the window (or if needed, delete the terminal) to continue.
+If a window pops up, close the window (or if needed, **delete the terminal**) to continue.
 
 Open Notebooks and Click `Run All`. Select the kernel associated with this repo `.venv`.
 
@@ -74,9 +77,12 @@ Open Notebooks and Click `Run All`. Select the kernel associated with this repo 
 
 If you update your copy of the examples, you might want to save progress.
 
+Save progress (some tools may make changes; re-running ensures everything is committed):
+
 ```shell
 git add -A
-# If pre-commit makes changes, re-run `git add -A` before committing.
+git commit -m "update"
+git add -A
 git commit -m "update"
 git push -u origin main
 ```

@@ -1,23 +1,24 @@
 # ============================================================
-# .gitignore (Universal Git Ignore Rules)
+# .gitignore (Keep unnecessary files out of the repository)
 # ============================================================
 
 # REQ.UNIVERSAL: All professional GitHub project repositories MUST include .gitignore.
 # WHY: Prevent committing generated artifacts, local state, secrets, and OS-specific files.
 # ALT: Repository may customize ignores, but MUST preserve universal safety rules.
-# CUSTOM: Logs may be temporarily committed for verification; keep ignored for production and security.
+# CUSTOM: Logs may be temporarily committed for verification; keep ignored for
+# production use and security.
 
-# === DEITEL BOOK: Do NOT redistribute example files ===
-# Copy the book's `examples/` folder locally for personal use.
-# This repository intentionally ignores that directory.
+# === DIETEL PROJECT SPECIFIC RULES ===
+
+# WHY: Textbook examples are available at https://github.com/pdeitel/IntroToPython
 examples/
 
 # === Universal (all projects, all languages) ===
 
 # WHY: Logs are useful during debugging and verification.
-# ALT: Uncomment temporarily if logs must be inspected or validated.
-# *.log
-# logs/
+# ALT: Comment if logs must be inspected or validated.
+*.log
+logs/
 PRIVATE_NOTES.md
 PRIVATE-NOTES.md
 
@@ -33,6 +34,7 @@ PRIVATE-NOTES.md
 .vscode/
 
 # WHY: Commit recommended extensions (opt-in) for consistent development experience.
+# NOTE: Share recommendations, not personal editor styles or preferences.
 !.vscode/extensions.json
 !.vscode/settings.json
 
@@ -81,8 +83,8 @@ venv/
 
 # REQ.PYTHON: Do NOT git ignore uv.lock. Commit it and use it in CI/CD pipelines.
 
-# WHY: Python version when using scm
-src/datafun_toolkit/_version.py
+# WHY: Python version when using scm matches any repo depth and any package name
+**/src/**/_version.py
 
 # WHY: Python bytecode is generated.
 __pycache__/
