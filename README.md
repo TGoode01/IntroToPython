@@ -1,4 +1,7 @@
 # IntroToPython
+example files from the Deitel/Pearson book
+
+# IntroToPython
 
 > Developer tooling for [IntroToPython](https://github.com/pdeitel/IntroToPython/)
 
